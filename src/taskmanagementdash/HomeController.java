@@ -67,8 +67,6 @@ public class HomeController implements Initializable {
     
     String JSON_URL = "https://jsonplaceholder.typicode.com/todos";
     private ObservableList<TaskModel> listOfTasks;
-    @FXML
-    private ProgressBar progress;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -99,12 +97,8 @@ public class HomeController implements Initializable {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskItem.fxml"));
                     TaskItemController controller = new TaskItemController();
                     loader.setController(controller);
-                    nodes[i] = loader.load();
-                    Platform.runLater(() -> {                        
-                        progress.setProgress(fetchList.getProgress());
-                    });
+                    nodes[i] = loader.load();                    
                     vTaskItems.getChildren().add(nodes[i]);
-                    // controller.setTask(model.get(i));
                     controller.setTask(listOfTasks.get(i));
                     
                 }
