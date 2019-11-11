@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -29,26 +30,26 @@ public class TaskItemController implements Initializable {
     @FXML
     private Button btnInfo;
 
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-      
     }
 
-    public void setTask(TasksModel model) {
-        lblTaskName.setText(model.getTaskName());
-        btnInfo.setText(model.getTaskStatus());
-        iconSelect.setImage(model.getIcon());
-        
+    public void setTask(TaskModel model) {
         ContextMenu menu = new ContextMenu();
-        if (model.getTaskStatus().equalsIgnoreCase("InComplete")) {
-            menu.getItems().add(new MenuItem("Set Task Complete"));
-        } else {
+        lblTaskName.setText(model.getTitle());
+
+        if (model.getCompleted().equals(true)) {
+            btnInfo.setText("Complete");
+            iconSelect.setImage(new Image(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px.png")));
             menu.getItems().add(new MenuItem("Set Task InComplete"));
+        } else {
+            btnInfo.setText("InComplete");
+            iconSelect.setImage(new Image(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px_1.png")));
+            menu.getItems().add(new MenuItem("Set Task Complete"));
         }
         
         lblTaskName.setContextMenu(menu);
