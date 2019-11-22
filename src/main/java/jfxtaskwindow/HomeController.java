@@ -20,18 +20,15 @@ import java.util.concurrent.Executors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import lombok.Cleanup;
+import utilities.Constants;
 
 /**
  *
@@ -48,7 +45,6 @@ public class HomeController implements Initializable {
     @FXML
     private VBox vTaskItems;
 
-    String JSON_URL = "https://jsonplaceholder.typicode.com/todos";
     private ObservableList<TasksModel> listOfTasks;
     
     @FXML
@@ -72,7 +68,7 @@ public class HomeController implements Initializable {
                 Node[] nodes = new Node[size];
                 for (int i = 0; i < nodes.length; i++) {
                     //load specific item
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TaskItem.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.FXML_ITEM_TASK));
                     TaskItemController controller = new TaskItemController();
                     loader.setController(controller);
                     nodes[i] = loader.load();
@@ -83,7 +79,7 @@ public class HomeController implements Initializable {
                 // Optional
                 for (int i = 0; i < nodes.length; i++) {
                     try {
-                        nodes[i] = FXMLLoader.load(getClass().getResource("/fxml/TaskItem.fxml"));
+                        nodes[i] = FXMLLoader.load(getClass().getResource(Constants.FXML_ITEM_TASK));
                         //vTaskItemsupcoming.getChildren().add(nodes[i]);
                     } catch (Exception e) {
                     }
@@ -101,7 +97,7 @@ public class HomeController implements Initializable {
         protected List<TasksModel> call() throws Exception {
             List<TasksModel> list = null;
             try {
-                String url = readUrl(JSON_URL);
+                String url = readUrl(Constants.JSON_URL);
                 System.out.println(url);
                 list = new Gson().fromJson(url, new TypeToken<List<TasksModel>>() {
                 }.getType());

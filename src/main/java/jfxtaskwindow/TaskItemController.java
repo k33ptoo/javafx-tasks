@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import utilities.Constants;
 
 /**
  * FXML Controller class
@@ -25,15 +26,16 @@ public class TaskItemController implements Initializable {
 
     @FXML
     private ImageView iconSelect;
-    
+
     @FXML
     private Label lblTaskName;
-    
+
     @FXML
     private Button btnInfo;
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -49,15 +51,14 @@ public class TaskItemController implements Initializable {
 
         if (model.getCompleted()) {
             btnInfo.setText("Complete");
-            iconSelect.setImage(new Image(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px.png")));
+            iconSelect.setImage(new Image(getClass().getResourceAsStream(Constants.ICON_CHECK_FILL)));
             menu.getItems().add(new MenuItem("Set Task InComplete"));
         } else {
             btnInfo.setText("InComplete");
-            System.out.println(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px.png"));
-            iconSelect.setImage(new Image(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px_1.png")));
+            iconSelect.setImage(new Image(getClass().getResourceAsStream(Constants.ICON_CHECK_UNFILL)));
             menu.getItems().add(new MenuItem("Set Task Complete"));
         }
-        
+
         lblTaskName.setContextMenu(menu);
     }
 

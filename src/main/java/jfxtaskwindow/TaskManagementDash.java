@@ -5,6 +5,7 @@
  */
 package jfxtaskwindow;
 
+import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import utilities.Constants;
 
 /**
  *
@@ -25,26 +27,33 @@ public class TaskManagementDash extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));
-        Scene scene = new Scene(root);
 
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.TRANSPARENT);
+        URL path = getClass().getResource(Constants.FXML_HOME);
+        if (path != null) {
+            Parent root = FXMLLoader.load(path);
+            Scene scene = new Scene(root);
 
-        // Grab your root here
-        root.setOnMousePressed((MouseEvent event) -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
+            stage.setScene(scene);
+            stage.setTitle(Constants.APP_TITLE);
+            stage.initStyle(StageStyle.TRANSPARENT);
 
-        // Move around here
-        root.setOnMouseDragged((MouseEvent event) -> {
-            stage.setX(event.getScreenX() - xOffset);
-            stage.setY(event.getScreenY() - yOffset);
-        });
+            // Grab your root here
+            root.setOnMousePressed((MouseEvent event) -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
 
-        stage.show();
+            // Move around here
+            root.setOnMouseDragged((MouseEvent event) -> {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            });
+
+            stage.show();
+        } else {
+            System.exit(-1);
+        }
+
     }
 
     /**
