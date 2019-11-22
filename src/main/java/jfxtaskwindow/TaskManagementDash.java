@@ -18,29 +18,32 @@ import javafx.stage.StageStyle;
  * @author Too
  */
 public class TaskManagementDash extends Application {
-     //define your offsets here
+
+    // Define your offsets here
     private double xOffset = 0;
     private double yOffset = 0;
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));        
-        Scene scene = new Scene(root);
         
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));
+        Scene scene = new Scene(root);
+
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
-        
-         //grab your root here
-             root.setOnMousePressed((MouseEvent event) -> {
-                 xOffset = event.getSceneX();
-                 yOffset = event.getSceneY();
+
+        // Grab your root here
+        root.setOnMousePressed((MouseEvent event) -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
         });
-        
-        //move around here
+
+        // Move around here
         root.setOnMouseDragged((MouseEvent event) -> {
             stage.setX(event.getScreenX() - xOffset);
             stage.setY(event.getScreenY() - yOffset);
         });
-       
+
         stage.show();
     }
 
@@ -50,5 +53,5 @@ public class TaskManagementDash extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

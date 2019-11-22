@@ -25,8 +25,10 @@ public class TaskItemController implements Initializable {
 
     @FXML
     private ImageView iconSelect;
+    
     @FXML
     private Label lblTaskName;
+    
     @FXML
     private Button btnInfo;
 
@@ -37,7 +39,7 @@ public class TaskItemController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
     }
 
     public void setTask(TasksModel model) {

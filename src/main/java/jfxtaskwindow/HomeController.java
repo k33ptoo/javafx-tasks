@@ -41,8 +41,10 @@ public class HomeController implements Initializable {
 
     @FXML
     private Label lblToday;
+    
     @FXML
     private Label lblUpcoming;
+    
     @FXML
     private VBox vTaskItems;
 
@@ -56,7 +58,6 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.submit(fetchList);
 
@@ -79,6 +80,7 @@ public class HomeController implements Initializable {
                     controller.setTask(listOfTasks.get(i));
                 }
 
+                // Optional
                 for (int i = 0; i < nodes.length; i++) {
                     try {
                         nodes[i] = FXMLLoader.load(getClass().getResource("/fxml/TaskItem.fxml"));
