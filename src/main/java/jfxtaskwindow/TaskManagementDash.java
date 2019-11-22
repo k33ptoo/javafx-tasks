@@ -23,7 +23,7 @@ public class TaskManagementDash extends Application {
     private double yOffset = 0;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));        
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

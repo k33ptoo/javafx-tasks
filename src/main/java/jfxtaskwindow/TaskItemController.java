@@ -32,22 +32,25 @@ public class TaskItemController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }
 
-    public void setTask(TaskModel model) {
+    public void setTask(TasksModel model) {
         ContextMenu menu = new ContextMenu();
-        lblTaskName.setText(model.getTitle());
+        lblTaskName.setText(model.getTaskName());
 
-        if (model.getCompleted().equals(true)) {
+        if (model.getTaskStatus().equals(true)) {
             btnInfo.setText("Complete");
             iconSelect.setImage(new Image(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px.png")));
             menu.getItems().add(new MenuItem("Set Task InComplete"));
         } else {
             btnInfo.setText("InComplete");
+            System.out.println(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px.png"));
             iconSelect.setImage(new Image(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px_1.png")));
             menu.getItems().add(new MenuItem("Set Task Complete"));
         }
