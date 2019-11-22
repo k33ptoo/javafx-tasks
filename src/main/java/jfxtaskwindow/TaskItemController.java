@@ -42,9 +42,10 @@ public class TaskItemController implements Initializable {
 
     public void setTask(TasksModel model) {
         ContextMenu menu = new ContextMenu();
-        lblTaskName.setText(model.getTaskName());
+        System.out.println(model.toString());
+        lblTaskName.setText(model.getTitle());
 
-        if (model.getTaskStatus().equals(true)) {
+        if (model.getCompleted()) {
             btnInfo.setText("Complete");
             iconSelect.setImage(new Image(getClass().getResourceAsStream("/icons/icons8_checked_filled_24px.png")));
             menu.getItems().add(new MenuItem("Set Task InComplete"));
