@@ -113,7 +113,7 @@
                      </font>
                   </Label>
                   <Label fx:id="lblGreeting" layoutX="90.0" layoutY="96.0" text="Welcome back to your workspace - some work to be done ;-)" textFill="#989aad" />
-                  <Button fx:id="btnEX" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="24.0" prefWidth="35.0" style="-fx-background-color: #989AAD; -fx-background-radius: 1em;" text="--" textFill="#cdcdcd" />
+                  <Button fx:id="btnEX" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeWindow" prefHeight="24.0" prefWidth="35.0" style="-fx-background-color: #989AAD; -fx-background-radius: 1em;" text="--" textFill="#cdcdcd" />
                </children>
             </Pane>
          </left>

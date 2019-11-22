@@ -29,6 +29,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import lombok.Cleanup;
 
@@ -64,13 +65,10 @@ public class HomeController implements Initializable {
 
     String JSON_URL = "https://jsonplaceholder.typicode.com/todos";
     private ObservableList<TasksModel> listOfTasks;
-
+    
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-
-        if (event.getSource() == btnEX) {
-            System.exit(0);
-        }
+    private void closeWindow(MouseEvent event) {
+        System.exit(0);
     }
 
     @Override
