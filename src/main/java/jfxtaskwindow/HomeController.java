@@ -39,29 +39,12 @@ import lombok.Cleanup;
  */
 public class HomeController implements Initializable {
 
-    private Label label;
     @FXML
-    private TextField tfSearch;
+    private Label lblToday;
     @FXML
-    private Label lblProjectCount;
-    @FXML
-    private Label lblName;
-    @FXML
-    private Label lblGreeting;
-    @FXML
-    private Label lblName1;
-    @FXML
-    private Label lblGreeting1;
-    @FXML
-    private Label lblName11;
-    @FXML
-    private Label lblName111;
+    private Label lblUpcoming;
     @FXML
     private VBox vTaskItems;
-    @FXML
-    private Button btnEX;
-    @FXML
-    private VBox vTaskItemsupcoming;
 
     String JSON_URL = "https://jsonplaceholder.typicode.com/todos";
     private ObservableList<TasksModel> listOfTasks;
@@ -81,8 +64,8 @@ public class HomeController implements Initializable {
 
             listOfTasks = FXCollections.observableArrayList(fetchList.getValue());
             int size = listOfTasks.size();
-            lblName11.setText("Today(" + size + ")");
-            lblName111.setText("Upcoming(" + 0 + ")");
+            lblToday.setText("Today(" + size + ")");
+            lblUpcoming.setText("Upcoming(" + 0 + ")");
 
             try { //load task items to vbox
                 Node[] nodes = new Node[size];

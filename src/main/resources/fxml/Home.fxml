@@ -34,7 +34,7 @@
                <bottom>
                   <BorderPane prefHeight="167.0" prefWidth="542.0" style="-fx-background-radius: 1em; -fx-border-radius: 1em;" BorderPane.alignment="CENTER">
                      <top>
-                        <Label fx:id="lblName111" text="Upcoming" BorderPane.alignment="CENTER_LEFT">
+                        <Label fx:id="lblUpcoming" text="Upcoming" BorderPane.alignment="CENTER_LEFT">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -66,7 +66,7 @@
                         </ScrollPane>
                      </center>
                      <top>
-                        <Label fx:id="lblName11" text="Today" BorderPane.alignment="CENTER_LEFT">
+                        <Label fx:id="lblToday" text="Today" BorderPane.alignment="CENTER_LEFT">
                            <font>
                               <Font size="14.0" />
                            </font>
